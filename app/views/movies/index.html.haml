@@ -16,17 +16,17 @@
     %tr
       - if @sort_title == 1
         %th{class: 'hilite'}
-          =link_to_unless_current 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params), id: 'title_header'
+          =link_to 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params.select{|k,v| k != 'sort_release_date'}), id: 'title_header'
       - else
         %th
-          =link_to 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params), id: 'title_header'
+          =link_to 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params.select{|k,v| k != 'sort_release_date'}), id: 'title_header'
       %th Rating
       - if @sort_release_date == 1
         %th{class: 'hilite'}
-          =link_to_unless_current 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params), id: 'release_date_header' #
+          =link_to 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params.select{|k,v| k != 'sort_title'}), id: 'release_date_header' #
       - else
         %th
-          =link_to_unless_current 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params), id: 'release_date_header'
+          =link_to 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params.select{|k,v| k != 'sort_title'}), id: 'release_date_header'
       %th More Info
   %tbody
     - @movies.each do |movie|
