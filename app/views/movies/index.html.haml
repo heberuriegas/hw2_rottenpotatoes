@@ -4,9 +4,19 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      - if @sort_title == 1
+        %th{class: 'background_yellow'}
+          =link_to 'Movie Title', './movies?sort_title=1', id: 'title_header'
+      - else
+        %th
+          =link_to 'Movie Title', './movies?sort_title=1', id: 'release_date_header'
       %th Rating
-      %th Release Date
+      - if @sort_release_date == 1
+        %th{class: 'background_yellow'}
+          =link_to 'Release Date', './movies?sort_release_date=1'
+      - else
+        %th
+          =link_to 'Release Date', './movies?sort_release_date=1'
       %th More Info
   %tbody
     - @movies.each do |movie|

@@ -2,12 +2,24 @@ class MoviesController < ApplicationController
 
   def show
     id = params[:id] # retrieve movie ID from URI route
+    
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
 
   def index
-    @movies = Movie.all
+    sort_title = params[:sort_title] unless params[:sort_title].nil?
+    sort_release_date = params[:sort_release_date] unless params[:sort_release_date].nil?
+    
+    if sort_title == '1'
+      @movies = Movie.find :all, order: 'title'
+      @sort_title = 1
+    elsif sort_release_date == '1'
+      @movies = Movie.find :all, order: 'release_date'
+      @sort_release_date = 1
+    else
+      @movies = Movie.all
+    end
   end
 
   def new
