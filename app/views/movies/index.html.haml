@@ -9,24 +9,24 @@
       = check_box_tag "ratings[#{rating}]", "ratings_#{rating}", true
     -else
       = check_box_tag "ratings[#{rating}]", "ratings_#{rating}", false
-  = submit_tag 'Refresh'
+  = submit_tag 'Refresh', id: 'ratings_submit'
   
 %table#movies
   %thead
     %tr
       - if @sort_title == 1
         %th{class: 'hilite'}
-          =link_to_unless_current 'Movie Title', movies_path(sort_title: '1'), id: 'title_header'
+          =link_to_unless_current 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params), id: 'title_header'
       - else
         %th
-          =link_to 'Movie Title', movies_path(sort_title: '1'), id: 'title_header'
+          =link_to 'Movie Title', {controller: ['movies'], action: ['index'], sort_title: '1'}.merge(params), id: 'title_header'
       %th Rating
       - if @sort_release_date == 1
         %th{class: 'hilite'}
-          =link_to_unless_current 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
+          =link_to_unless_current 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params), id: 'release_date_header' #
       - else
         %th
-          =link_to_unless_current 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
+          =link_to_unless_current 'Release Date', {controller: ['movies'], action: ['index'], sort_release_date: '1'}.merge(params), id: 'release_date_header'
       %th More Info
   %tbody
     - @movies.each do |movie|
