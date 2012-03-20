@@ -1,18 +1,25 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
+= form_tag movies_path, :method => :get do
+  Include:
+  - @all_ratings.each do |rating|
+    = rating
+    = check_box_tag "ratings[#{rating}]"
+  = submit_tag 'Refresh'
+  
 %table#movies
   %thead
     %tr
       - if @sort_title == 1
-        %th{class: 'background_yellow'}
+        %th{class: 'hilite'}
           =link_to 'Movie Title', './movies?sort_title=1', id: 'title_header'
       - else
         %th
           =link_to 'Movie Title', './movies?sort_title=1', id: 'title_header'
       %th Rating
       - if @sort_release_date == 1
-        %th{class: 'background_yellow'}
+        %th{class: 'hilite'}
           =link_to 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
       - else
         %th
