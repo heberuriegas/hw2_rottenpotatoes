@@ -11,17 +11,28 @@ class MoviesController < ApplicationController
     sort_title = params[:sort_title] unless params[:sort_title].nil?
     sort_release_date = params[:sort_release_date] unless params[:sort_release_date].nil?
     
+    if params[:ratings].nil?
+      @ratings = {}
+      Movie.get_ratings.sort.each {|t| @ratings[t] = '1'}
+    else  
+      @ratings = params[:ratings]     
+    end
+    
+    
     if sort_title == '1'
-      @movies = Movie.find :all, order: 'title'
+      @movies = Movie.where(rating: @ratings.keys).order("title")
       @sort_title = 1
     elsif sort_release_date == '1'
-      @movies = Movie.find :all, order: 'release_date'
+      @movies = Movie.where(rating: @ratings.keys).order("release_date")
       @sort_release_date = 1
+    elsif @ratings.size > 0
+      @movies = Movie.where rating: @ratings.keys
     else
       @movies = Movie.all
     end
     
-    @all_ratings = ['G','PG','PG-13','R']
+    @all_ratings = Movie.get_ratings.sort
+    
     
   end
 

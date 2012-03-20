@@ -5,7 +5,10 @@
   Include:
   - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]"
+    -if @ratings.has_key? rating
+      = check_box_tag "ratings[#{rating}]", "ratings_#{rating}", true
+    -else
+      = check_box_tag "ratings[#{rating}]", "ratings_#{rating}", false
   = submit_tag 'Refresh'
   
 %table#movies
@@ -13,17 +16,17 @@
     %tr
       - if @sort_title == 1
         %th{class: 'hilite'}
-          =link_to 'Movie Title', './movies?sort_title=1', id: 'title_header'
+          =link_to_unless_current 'Movie Title', movies_path(sort_title: '1'), id: 'title_header'
       - else
         %th
-          =link_to 'Movie Title', './movies?sort_title=1', id: 'title_header'
+          =link_to 'Movie Title', movies_path(sort_title: '1'), id: 'title_header'
       %th Rating
       - if @sort_release_date == 1
         %th{class: 'hilite'}
-          =link_to 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
+          =link_to_unless_current 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
       - else
         %th
-          =link_to 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
+          =link_to_unless_current 'Release Date', './movies?sort_release_date=1', id: 'release_date_header'
       %th More Info
   %tbody
     - @movies.each do |movie|
