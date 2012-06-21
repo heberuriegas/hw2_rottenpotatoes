@@ -7,6 +7,8 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
+
+  
   def index
     
     # Manejo de parametros

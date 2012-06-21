@@ -393,3 +393,148 @@ Processing by MoviesController#index as HTML
   Rendered movies/index.html.haml within layouts/application (5.9ms)
 Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.4ms)
   [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:31:28 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Redirected to http://www.example.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings[G]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1" for 127.0.0.1 at 2012-06-21 18:31:29 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (11.4ms)
+Completed 200 OK in 63ms (Views: 61.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2012-06-21 18:31:29 -0500
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2012-06-21 18:31:29 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1ldyW7Pk3pHBFy+0zaDq8hLZ5ApQsDvwOJ1JCszNkO0=", "movie"=>{"title"=>"Men In Black", "rating"=>"PG-13", "release_date(1i)"=>"2012", "release_date(2i)"=>"6", "release_date(3i)"=>"21"}, "commit"=>"Save Changes"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 21 Jun 2012 23:31:29 UTC +00:00], ["description", nil], ["rating", "PG-13"], ["release_date", Thu, 21 Jun 2012 00:00:00 UTC +00:00], ["title", "Men In Black"], ["updated_at", Thu, 21 Jun 2012 23:31:29 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/movies
+Completed 302 Found in 9ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:31:29 -0500
+Processing by MoviesController#index as HTML
+Redirected to http://www.example.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings[G]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1" for 127.0.0.1 at 2012-06-21 18:31:29 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:40:45 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Redirected to http://www.example.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 14ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings[G]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1" for 127.0.0.1 at 2012-06-21 18:40:45 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (12.1ms)
+Completed 200 OK in 68ms (Views: 66.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:41:26 -0500
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 127.0.0.1 at 2012-06-21 18:41:26 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (38.6ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionController::RoutingError (No route matches {:action=>"search_tmdb", :controller=>"movies"}):
+  app/views/movies/index.html.haml:45:in `_app_views_movies_index_html_haml__780594551_85475320'
+
+
+  Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:41:40 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Redirected to http://www.example.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings[G]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1" for 127.0.0.1 at 2012-06-21 18:41:40 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 52ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/movies" for 127.0.0.1 at 2012-06-21 18:42:17 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Redirected to http://www.example.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies?ratings[G]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1" for 127.0.0.1 at 2012-06-21 18:42:17 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 52ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 127.0.0.1 at 2012-06-21 18:43:49 -0500
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 70ms
+
+ActionController::RoutingError (No route matches {:action=>"search_tmdb", :controller=>"movies"}):
+  app/views/movies/index.html.haml:45:in `_app_views_movies_index_html_haml___596746153_80530710'
+
+
+  Rendered /usr/share/ruby-rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
