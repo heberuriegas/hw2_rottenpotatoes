@@ -17453,3 +17453,39 @@ Served asset /application.js - 304 Not Modified (0ms)
 
 Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-03-20 01:05:38 -0600
 Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (117.1ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (301.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (278.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (165.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120130161449')
+  [1m[36m (121.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (128.0ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (111.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (123.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (84.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120130161449')
+  [1m[36m (126.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (359.7ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (88.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (100.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (66.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120130161449')
+  [1m[36m (66.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (123.4ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (99.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (145.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (110.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120130161449')
+  [1m[36m (77.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
