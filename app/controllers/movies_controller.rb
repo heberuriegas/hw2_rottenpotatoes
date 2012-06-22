@@ -7,12 +7,18 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
-
+  # add to movies_controller.rb, anywhere inside
+  #  'class MoviesController < ApplicationController':
   
+  def search_tmdb
+    # hardwire to simulate failure
+    flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
+    redirect_to movies_path
+  end
+
   def index
-    
     # Manejo de parametros
-   
+    
     path = {controller: 'movies', action: 'index'}  
     redirect = false
    
@@ -49,7 +55,7 @@ class MoviesController < ApplicationController
       path[:sort_release_date] = session[:sort_release_date] unless session[:sort_release_date].nil?
       path[:ratings] = session[:ratings]
       
-      redirect_to path
+      redirect_to path, flash: {:warning}
     end
     
     
