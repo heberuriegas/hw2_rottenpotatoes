@@ -55,7 +55,8 @@ class MoviesController < ApplicationController
       path[:sort_release_date] = session[:sort_release_date] unless session[:sort_release_date].nil?
       path[:ratings] = session[:ratings]
       
-      redirect_to path, flash: {:warning}
+      #TODO: Pass path
+      redirect_to path
     end
     
     
