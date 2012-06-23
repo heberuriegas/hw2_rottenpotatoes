@@ -30,8 +30,6 @@ class MoviesController < ApplicationController
       session[:sort_release_date] = params[:sort_release_date]      
     end
     
-    
-    
     sort_title = session[:sort_title] unless session[:sort_title].nil?
     sort_release_date = session[:sort_release_date] unless session[:sort_release_date].nil?
     
@@ -55,7 +53,8 @@ class MoviesController < ApplicationController
       path[:sort_release_date] = session[:sort_release_date] unless session[:sort_release_date].nil?
       path[:ratings] = session[:ratings]
       
-      #TODO: Pass path
+      flash[:warning] = flash[:warning]
+      
       redirect_to path
     end
     
